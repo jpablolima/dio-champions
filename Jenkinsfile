@@ -1,12 +1,12 @@
 pipeline {
     agent {
-         "dio-champions"
+        label "dio-champions"
     }
 
     stages {
         stage("build") {
             steps {
-                echo  "teste"
+                echo "teste"
             }
         }
     }
