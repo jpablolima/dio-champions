@@ -28,7 +28,7 @@ pipeline {
                 echo "Deployment to project..."
                 sh "kind load docker-image ${IMAGE_TAG} --name devops"
                 sh "kubectl delete pod dio-champions.yaml -n dio --ignore-not-found=true"
-                sh "kubctl apply -f dio-champions.yaml -n dio"
+                sh "kubectl apply -f dio-champions.yaml -n dio"
                 sh "kubectl wait --for=condition=Ready pod/formula-one -n dio --timeout=30s"
             }
         }
