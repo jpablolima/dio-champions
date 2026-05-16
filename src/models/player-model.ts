@@ -12,11 +12,12 @@ export interface PlayerModel {
     Dribbling: number;
     Defending: number;
     Physical: number;
-    Diving: number;
-    Handling: number;
-    Kicking: number;
-    Reflexes: number;
-    Speed: number;
-    Positioning: number;
+
+    Diving?: number | undefined;
+    Handling?: number | undefined;
+    Kicking?: number | undefined;
+    Reflexes?: number | undefined;
+    Speed?: number | undefined;
+    Positioning?: number | undefined;
   };
 }

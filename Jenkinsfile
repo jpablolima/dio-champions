@@ -3,7 +3,7 @@ pipeline {
         label "dio-champions"
     }
     environment {
-        KUBECONFIG = "/home/pablo/.kube/config" 
+        KUBECONFIG = "/home/pablo/.kube/config"
         IMAGE_NAME = "champions"
         IMAGE_TAG  = "champions:latest"
     }
