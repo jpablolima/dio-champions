@@ -1,5 +1,9 @@
+import { Http2ServerResponse } from "http2";
+import { PlayerModel } from "../models/player-model";
+import { HttpResponse } from "../models/http-response-model";
 import * as PlayerRepository from "../repositories/players-repository";
-import { noContent, ok } from "../utils/http-helper";
+import { noContent, ok, created, badRequest } from "../utils/http-helper";
+import { response } from "express";
 
 export const getPlayerService = async () => {
   const data = await PlayerRepository.findAllPlayers();
@@ -23,4 +27,19 @@ export const getPlayerByIdService = async (id: number) => {
     response = await noContent();
   }
   return response;
+};
+
+export const createPlayerService = async (player: PlayerModel) => {
+  let response: HttpResponse;
+
+  if (Object.keys(player).length != 0) {
+    await PlayerRepository.insertPlayer(player);
+    return created();
+  } else {
+    response = {
+      statusCode: 400,
+      body: "Dados invalidos",
+    };
+    return response;
+  }
 };
